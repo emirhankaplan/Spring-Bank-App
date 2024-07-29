@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 36px;
+        }
+
+        button {
+            background-color: #ffd700; /* Altın rengi */
+            color: white;
+            padding: 15px 30px; /* Büyük boyut */
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px; /* Büyük boyut */
+        }
+
+        button:hover {
+            background-color: #e6ac00; /* Hover rengi */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome, <span th:text="${username}"></span>!</h1>
+
+
+<a th:href="@{/bankers/create}"><button type="button">Add Banker</button></a>
+
+
+<a th:href="@{/customer/list}"><button type="button">List Bankers</button></a>
+
+<a th:href="@{/loanapplications/pendinglist}"><button type="button">List Credi</button></a>
+
+</body>
+</html>

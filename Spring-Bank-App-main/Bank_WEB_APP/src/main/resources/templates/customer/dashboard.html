@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+        }
+
+        .left-section, .right-section {
+            flex: 1;
+        }
+
+        h1, h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #ffc107;
+            color: #333;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #ffca2c;
+        }
+
+        .credit-button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="left-section">
+        <h1>Welcome, <span th:text="${username}"></span>!</h1>
+        <h2>Your Balance: <span th:text="${balance}"></span></h2>
+
+
+        <form th:action="@{'/customer/addmoney/' + ${username}}" method="post">
+            <label for="addAmount">Amount to Add:</label>
+            <input type="number" id="addAmount" name="amount" step="0.01" required>
+            <button type="submit">Add Money</button>
+        </form>
+
+
+        <form th:action="@{'/customer/rmmoney/' + ${username}}" method="post">
+            <label for="removeAmount">Amount to Remove:</label>
+            <input type="number" id="removeAmount" name="amount" step="0.01" required>
+            <button type="submit">Remove Money</button>
+        </form>
+    </div>
+
+    <div class="right-section">
+
+        <a th:href="@{'/loanapplications/apply/' + ${username}}" class="credit-button">
+            <button type="button">Apply for Credit</button>
+        </a>
+        <a th:href="@{'/loanapplications/list/' + ${username}}" class="credit-button">
+            <button type="button">My Credit</button>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>

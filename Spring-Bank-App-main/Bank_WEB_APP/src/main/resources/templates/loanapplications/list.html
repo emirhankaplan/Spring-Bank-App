@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Applications</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: #007bff; /* Mavi Rengi */
+        }
+
+        table {
+            width: 50%;
+            background-color: #fff;
+            margin-top: 20px;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff; /* Mavi Rengi */
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Kredi Başvuruların</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Amount</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="loanApplication : ${loanApplications}">
+        <td th:text="${loanApplication.id}"></td>
+        <td th:text="${loanApplication.amount}"></td>
+        <td th:text="${loanApplication.status}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

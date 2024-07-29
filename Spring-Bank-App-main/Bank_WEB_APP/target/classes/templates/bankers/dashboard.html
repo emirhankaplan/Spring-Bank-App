@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banker Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            background-color: #ffc107;
+            color: #333;
+            padding: 15px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        button:hover {
+            background-color: #ffca2c;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Welcome, <span th:text="${username}"></span>!</h1>
+
+
+<a th:href="@{/auth/register}"><button type="button">Add Customer</button></a>
+
+
+<a th:href="@{/customer/customerlist}"><button type="button">List Customers</button></a>
+
+</body>
+</html>
